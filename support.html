@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GritMode // SUPPORT</title>
+<meta name="description" content="GritMode Support — write to us, we'll sort it out." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --bg-2: #050806;
+    --panel: #0A0F0C;
+    --panel-2: #0E1511;
+    --line: rgba(127,255,92,0.18);
+    --line-soft: rgba(127,255,92,0.08);
+    --green: #7FFF5C;
+    --green-dim: #4ECC33;
+    --green-ink: #050D05;
+    --orange: #FF6B3D;
+    --cyan: #4FD6FF;
+    --white: #FFFFFF;
+    --text-2: rgba(255,255,255,0.62);
+    --text-3: rgba(255,255,255,0.36);
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+    --sans: "Space Grotesk", -apple-system, Segoe UI, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--white); font-family: var(--mono); -webkit-font-smoothing: antialiased; }
+  body { overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(127,255,92,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(127,255,92,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(circle at 80% 10%, rgba(127,255,92,0.07), transparent 40%),
+      radial-gradient(circle at 10% 80%, rgba(79,214,255,0.04), transparent 40%);
+    pointer-events: none;
+  }
+  main, header, footer, nav { position: relative; z-index: 1; }
+
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 28px; }
+
+  /* bracket helper */
+  .bracket { position: relative; }
+  .bracket::before, .bracket::after,
+  .bracket > .br-bl, .bracket > .br-br {
+    content: ""; position: absolute; width: 12px; height: 12px;
+    border: 1.5px solid var(--green); pointer-events: none;
+  }
+  .bracket::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+  .bracket::after  { top: -2px; right: -2px; border-left: 0; border-bottom: 0; }
+  .bracket > .br-bl { bottom: -2px; left: -2px; border-right: 0; border-top: 0; }
+  .bracket > .br-br { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(0,0,0,0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--sans); font-weight: 700; font-size: 18px; letter-spacing: 0.02em;
+  }
+  .brand-mark {
+    width: 34px; height: 34px; position: relative; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 0 12px rgba(127,255,92,0.35), 0 0 20px rgba(79,214,255,0.15);
+  }
+  .brand-mark img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .brand-mark::before, .brand-mark::after {
+    content: ""; position: absolute; width: 5px; height: 5px; border: 1.5px solid var(--green); pointer-events: none;
+  }
+  .brand-mark::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+  .brand-mark::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; border-color: var(--cyan); }
+  .brand-tag {
+    font-family: var(--mono); font-size: 10px; color: var(--green-dim);
+    letter-spacing: 0.1em; margin-left: 8px;
+    border-left: 1px solid var(--line); padding-left: 12px;
+  }
+  .nav-back {
+    font-family: var(--mono); font-size: 12px; color: var(--text-2);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    display: flex; align-items: center; gap: 8px;
+    transition: color .15s;
+  }
+  .nav-back:hover { color: var(--green); }
+
+  @media (max-width: 900px) { .brand-tag { display: none; } }
+
+  /* PAGE HEADER */
+  .page-head {
+    padding: 72px 0 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  .page-tag {
+    font-size: 11px; color: var(--green-dim);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .page-tag .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); animation: blink 1.4s infinite; }
+  @keyframes blink { 0%,60% { opacity: 1; } 80%,100% { opacity: 0.25; } }
+
+  h1.page-title {
+    font-family: var(--sans); font-weight: 700;
+    font-size: clamp(44px, 7vw, 96px);
+    line-height: 0.92; letter-spacing: -0.02em;
+    margin: 0 0 18px; text-transform: uppercase;
+  }
+  h1.page-title .g {
+    color: var(--green);
+    text-shadow: 0 0 24px rgba(127,255,92,0.55), 0 0 48px rgba(127,255,92,0.25);
+  }
+  .page-sub {
+    font-family: var(--mono); font-size: 14px; line-height: 1.65;
+    color: var(--text-2); max-width: 560px;
+  }
+
+  /* MAIN LAYOUT */
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 48px;
+    padding: 72px 0 96px;
+    align-items: start;
+  }
+  @media (max-width: 960px) { .support-grid { grid-template-columns: 1fr; } }
+
+  /* FORM */
+  .form-panel {
+    background: var(--panel);
+    padding: 40px;
+    position: relative;
+  }
+  .form-tag {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--green); letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 28px;
+  }
+  .form-group { margin-bottom: 22px; }
+  .form-group label {
+    display: block;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--text-3); letter-spacing: 0.14em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .form-group label .req { color: var(--green); margin-left: 3px; }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: rgba(127,255,92,0.03);
+    border: 1.5px solid rgba(127,255,92,0.2);
+    color: var(--white);
+    font-family: var(--mono); font-size: 13px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    appearance: none;
+    border-radius: 0;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--text-3); }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 1px rgba(127,255,92,0.25), 0 0 20px rgba(127,255,92,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+
+  .form-group select option { background: #0A0F0C; color: var(--white); }
+
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: "▾";
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    color: var(--green); pointer-events: none; font-size: 12px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    position: relative;
+    font-family: var(--mono);
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 18px 28px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    background: var(--green); color: var(--green-ink);
+    box-shadow: 0 0 28px rgba(127,255,92,0.35);
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    transition: transform .15s, box-shadow .2s;
+    cursor: pointer; border: none;
+    margin-top: 8px;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 44px rgba(127,255,92,0.6); }
+  .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .form-note {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--text-3); margin-top: 14px; line-height: 1.6;
+    text-align: center;
+  }
+  .form-note a { color: var(--green-dim); }
+  .form-note a:hover { color: var(--green); }
+
+  /* SUCCESS STATE */
+  .success-panel {
+    display: none;
+    background: var(--panel);
+    padding: 48px 40px;
+    position: relative;
+    text-align: center;
+  }
+  .success-panel.show { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .success-ico {
+    font-family: var(--mono); font-size: 40px;
+    color: var(--green);
+    text-shadow: 0 0 20px rgba(127,255,92,0.6);
+  }
+  .success-panel h3 {
+    font-family: var(--sans); font-weight: 700;
+    font-size: 28px; text-transform: uppercase;
+    color: var(--green); margin: 0;
+  }
+  .success-panel p {
+    font-family: var(--mono); font-size: 13px;
+    color: var(--text-2); line-height: 1.7; max-width: 360px; margin: 0;
+  }
+
+  /* SIDEBAR INFO */
+  .info-col { display: flex; flex-direction: column; gap: 20px; }
+
+  .info-card {
+    background: var(--panel);
+    padding: 24px;
+    position: relative;
+  }
+  .info-card .ic-tag {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--green-dim); letter-spacing: 0.16em;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .info-card h4 {
+    font-family: var(--sans); font-weight: 700;
+    font-size: 18px; text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .info-card p {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-2); line-height: 1.7; margin: 0;
+  }
+  .info-card p b { color: var(--green); font-weight: 500; }
+  .info-card p a { color: var(--green-dim); }
+  .info-card p a:hover { color: var(--green); }
+
+  .info-list {
+    list-style: none; padding: 0; margin: 12px 0 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .info-list li {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-2); line-height: 1.5;
+    padding-left: 16px; position: relative;
+  }
+  .info-list li::before { content: ">_"; position: absolute; left: 0; color: var(--green-dim); font-size: 10px; top: 2px; }
+
+  .status-row {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 14px;
+    font-family: var(--mono); font-size: 11px; color: var(--text-2);
+  }
+  .status-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); animation: blink 1.4s infinite; }
+
+  /* TERMINAL STRIP */
+  .terminal {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--panel); padding: 14px 0;
+    font-family: var(--mono); font-size: 12px; overflow: hidden;
+  }
+  .term-track {
+    display: flex; gap: 48px; white-space: nowrap;
+    animation: mrq 36s linear infinite;
+  }
+  .term-track span { display: inline-flex; align-items: center; gap: 48px; color: var(--text-2); }
+  .term-track .g { color: var(--green); }
+  .term-track .o { color: var(--orange); }
+  .term-track .c { color: var(--cyan); }
+  .term-track .sep { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; }
+  @keyframes mrq { to { transform: translateX(-50%); } }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line); padding: 32px 0;
+    background: var(--bg-2); font-family: var(--mono);
+  }
+  .foot-bot {
+    display: flex; justify-content: space-between;
+    font-size: 10px; color: var(--text-3);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .foot-bot .g { color: var(--green); }
+
+  /* ───────── CYBERPUNK FX ───────── */
+  #bgc {
+    position: fixed; inset: 0; z-index: 0;
+    opacity: 0.10; pointer-events: none;
+  }
+  .scanlines {
+    position: fixed; inset: 0; z-index: 2;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 3px,
+      rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+    );
+    pointer-events: none;
+    animation: scanDrift 10s linear infinite;
+  }
+  @keyframes scanDrift {
+    from { background-position: 0 0; }
+    to   { background-position: 0 200px; }
+  }
+  @keyframes neonFlicker {
+    0%, 95%, 100% { opacity: 1; }
+    96%  { opacity: 0.4; }
+    97%  { opacity: 1;   }
+    98%  { opacity: 0.2; }
+    99%  { opacity: 0.9; }
+  }
+  .ic-tag, .form-tag {
+    animation: neonFlicker 8s infinite;
+    animation-delay: var(--fd, 0s);
+  }
+</style>
+</head>
+<body>
+<canvas id="bgc"></canvas>
+<div class="scanlines"></div>
+
+<nav class="top">
+  <div class="wrap row">
+    <div class="brand">
+      <div class="brand-mark"><img src="assets/gm-icon.png" alt="GritMode"/></div>
+      GritMode
+      <span class="brand-tag">// SUPPORT_HUB</span>
+    </div>
+    <a href="index.html" class="nav-back">← Back to Hub</a>
+  </div>
+</nav>
+
+<!-- TERMINAL STRIP -->
+<div class="terminal">
+  <div class="term-track">
+    <span><span class="g">// SUPPORT_CHANNEL_OPEN</span><span class="sep"></span><span class="o">// RESPONSE_TIME: 24H</span><span class="sep"></span><span class="c">// ALL_DATA_ON_DEVICE</span><span class="sep"></span><span class="g">// OPERATOR_ASSISTED</span><span class="sep"></span><span class="o">// NO_BOTS</span><span class="sep"></span><span class="c">// VERSION_v2.6</span><span class="sep"></span></span>
+    <span><span class="g">// SUPPORT_CHANNEL_OPEN</span><span class="sep"></span><span class="o">// RESPONSE_TIME: 24H</span><span class="sep"></span><span class="c">// ALL_DATA_ON_DEVICE</span><span class="sep"></span><span class="g">// OPERATOR_ASSISTED</span><span class="sep"></span><span class="o">// NO_BOTS</span><span class="sep"></span><span class="c">// VERSION_v2.6</span><span class="sep"></span></span>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="page-tag">
+      <span class="dot"></span>
+      <span>// SUPPORT_HUB · CHANNEL_ACTIVE</span>
+    </div>
+    <h1 class="page-title">
+      Get in touch<br/>with the <span class="g">team.</span>
+    </h1>
+    <p class="page-sub">Describe your issue or question — we'll reply within 24 hours. No bots. A real operator.</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div class="wrap">
+    <div class="support-grid">
+
+      <!-- FORM -->
+      <div>
+        <form class="form-panel bracket" id="supportForm" action="mailto:alex.biriulin.pro@gmail.com" method="get" enctype="text/plain">
+          <span class="br-bl"></span><span class="br-br"></span>
+          <div class="form-tag">// TRANSMIT_MESSAGE</div>
+
+          <div class="form-group">
+            <label>Name <span class="req">*</span></label>
+            <input type="text" name="name" placeholder="Operator callsign" required autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="from" placeholder="operator@mail.com" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label>Subject</label>
+            <div class="select-wrap">
+              <select name="subject">
+                <option value="Question about the app">Question about the app</option>
+                <option value="Blocking issue">Blocking issue</option>
+                <option value="Rep counter issue">Rep counter issue</option>
+                <option value="Subscription and billing">Subscription and billing</option>
+                <option value="Credit system">Credit system</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Message <span class="req">*</span></label>
+            <textarea name="body" placeholder="Describe the situation — what's happening, iOS version, device model..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">▷ Send Message</button>
+          <p class="form-note">Clicking the button will open your mail client with a pre-filled message to<br/><a href="mailto:alex.biriulin.pro@gmail.com">alex.biriulin.pro@gmail.com</a></p>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="info-col">
+
+        <div class="info-card bracket">
+          <span class="br-bl"></span><span class="br-br"></span>
+          <div class="ic-tag">// DIRECT_LINE</div>
+          <h4>Support Email</h4>
+          <p>You can write directly:<br/><b><a href="mailto:alex.biriulin.pro@gmail.com">alex.biriulin.pro@gmail.com</a></b></p>
+          <div class="status-row">
+            <span class="status-dot"></span>
+            <span>Channel open · Response within 24h</span>
+          </div>
+        </div>
+
+        <div class="info-card bracket">
+          <span class="br-bl"></span><span class="br-br"></span>
+          <div class="ic-tag">// COMMON_ISSUES</div>
+          <h4>Common Issues</h4>
+          <ul class="info-list">
+            <li>Blocking not working — Screen Time permission required</li>
+            <li>Camera not counting reps — stand 3–6 ft from the phone</li>
+            <li>Debt not clearing — update the app to v2.6</li>
+            <li>Subscription not restoring — Settings → Apple ID</li>
+          </ul>
+        </div>
+
+        <div class="info-card bracket">
+          <span class="br-bl"></span><span class="br-br"></span>
+          <div class="ic-tag">// SYSTEM_INFO</div>
+          <h4>Helpful to Include</h4>
+          <ul class="info-list">
+            <li>iOS version (Settings → General → Software)</li>
+            <li>iPhone model</li>
+            <li>GritMode version (Settings → About)</li>
+            <li>Screenshot of the issue if available</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bot">
+      <div>// © 2026 GRITMODE · ALL RIGHTS RESERVED</div>
+      <div class="g">// SUPPORT_HUB · CHANNEL_OPEN</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── MATRIX RAIN ───
+  (function () {
+    const canvas = document.getElementById('bgc');
+    const ctx = canvas.getContext('2d');
+    const CHARS = '01アイウエオカキクサシスタチナニABCDEF0123456789>_//[]{}⊕⊗≡';
+    const SIZE  = 14;
+    let cols, drops;
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      cols  = Math.floor(canvas.width / SIZE);
+      drops = Array.from({ length: cols }, () => Math.random() * -60);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function tick() {
+      ctx.fillStyle = 'rgba(0,0,0,0.055)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = SIZE + 'px JetBrains Mono, monospace';
+      drops.forEach((y, i) => {
+        const ch  = CHARS[Math.floor(Math.random() * CHARS.length)];
+        const op  = 0.12 + Math.random() * 0.55;
+        ctx.fillStyle = `rgba(127,255,92,${op})`;
+        ctx.fillText(ch, i * SIZE, y * SIZE);
+        if (y * SIZE > canvas.height && Math.random() > 0.972) drops[i] = Math.random() * -40;
+        drops[i] += 0.6;
+      });
+    }
+    setInterval(tick, 75);
+  })();
+
+  // ─── NEON FLICKER STAGGER ───
+  document.querySelectorAll('.ic-tag, .form-tag').forEach((el, i) => {
+    el.style.setProperty('--fd', (i * 1.7) + 's');
+  });
+</script>
+</body>
+</html>
