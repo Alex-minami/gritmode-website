@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GritMode // OPERATOR_HUB</title>
-<link rel="icon" type="image/png" href="assets/gm-icon.png" />
-<link rel="apple-touch-icon" href="assets/gm-icon.png" />
-<meta name="description" content="GritMode — your discipline command hub. Blocks Instagram, TikTok, YouTube. Unlocks only after you exercise." />
+<title>GritMode — Free iPhone App Blocker</title>
+<meta name="description" content="GritMode is a free iPhone app blocker. Earn screen time with push-ups, squats, crunches, planks, steps, and breathing exercises. No subscription." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="GritMode — Earn Your Screen Time" />
-<meta property="og:description" content="Block social apps. Unlock them by doing push-ups, squats, and more. AI-detected. On-device. No cheating." />
+<meta property="og:title" content="GritMode — Free iPhone App Blocker" />
+<meta property="og:description" content="Block distracting apps and earn minutes of access through exercise. Free, with no subscription or in-app purchases." />
+<link rel="icon" type="image/png" href="assets/gritmode-app-icon.png" />
+<link rel="apple-touch-icon" href="assets/gritmode-app-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -678,51 +678,39 @@
   .log-name { font-family: var(--mono); font-size: 12px; font-weight: 600; }
   .log-meta { font-family: var(--mono); font-size: 10px; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
 
-  /* ───────── PRICING ───────── */
+  /* ───────── FREE ACCESS ───────── */
   .pricing-box {
     max-width: 720px; margin: 0 auto;
     display: flex; flex-direction: column; gap: 14px;
   }
-  .tier {
+  .free-feature {
     position: relative;
     background: var(--panel);
     padding: 22px 28px;
     display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    cursor: pointer;
-    transition: background .2s, transform .15s;
+    transition: background .2s;
   }
-  .tier:hover { background: var(--panel-2); }
-  .tier.featured {
+  .free-feature:hover { background: var(--panel-2); }
+  .free-feature.featured {
     background: linear-gradient(180deg, rgba(127,255,92,0.08), rgba(127,255,92,0.02));
   }
-  .tier .tier-tag {
+  .free-feature .feature-tag {
     font-family: var(--mono); font-size: 10px;
     color: var(--green-dim); letter-spacing: 0.14em; text-transform: uppercase;
   }
-  .tier.featured .tier-tag { color: var(--green); }
-  .tier-name {
+  .free-feature.featured .feature-tag { color: var(--green); }
+  .feature-name {
     font-family: var(--sans); font-weight: 700;
     font-size: 22px; letter-spacing: -0.005em;
     margin: 6px 0 4px;
     text-transform: uppercase;
   }
-  .tier.featured .tier-name { color: var(--green); text-shadow: 0 0 16px rgba(127,255,92,0.35); }
-  .tier-sub {
+  .free-feature.featured .feature-name { color: var(--green); text-shadow: 0 0 16px rgba(127,255,92,0.35); }
+  .feature-sub {
     font-family: var(--mono); font-size: 12px; color: var(--text-2);
     letter-spacing: 0.02em;
   }
-  .tier-price {
-    font-family: var(--mono); font-size: 13px; color: var(--text-3);
-    text-align: right; flex-shrink: 0;
-  }
-  .tier-price b {
-    display: block;
-    font-family: var(--sans); font-weight: 700;
-    font-size: 28px; letter-spacing: -0.01em;
-    color: var(--white);
-  }
-  .tier.featured .tier-price b { color: var(--green); text-shadow: 0 0 12px rgba(127,255,92,0.35); }
-  .tier-badge {
+  .free-badge {
     position: absolute; top: -10px; right: 16px;
     background: var(--green); color: var(--green-ink);
     font-family: var(--mono); font-size: 10px; font-weight: 700;
@@ -731,19 +719,11 @@
     clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
     box-shadow: 0 0 18px rgba(127,255,92,0.5);
   }
-  .pricing-cta-row {
+  .free-cta-row {
     margin-top: 10px;
     display: flex; flex-direction: column; gap: 12px; align-items: center;
   }
-  .pricing-cta-row .btn { min-width: 280px; justify-content: center; }
-  .pricing-links {
-    font-family: var(--mono); font-size: 11px;
-    color: var(--text-3); letter-spacing: 0.08em;
-    display: flex; gap: 14px; align-items: center;
-    margin-top: 6px;
-  }
-  .pricing-links a:hover { color: var(--green); }
-  .pricing-links span { color: var(--line); }
+  .free-cta-row .btn { min-width: 280px; justify-content: center; }
   .pricing-features {
     max-width: 720px; margin: 28px auto 0;
     padding: 22px 28px;
@@ -937,19 +917,19 @@
 <nav class="top">
   <div class="wrap row">
     <div class="brand">
-      <div class="brand-mark"><img src="assets/gm-icon.png" alt="GritMode"/></div>
+      <div class="brand-mark"><img src="assets/gritmode-app-icon.png" alt="GritMode"/></div>
       GritMode
-      <span class="brand-tag">// v.2.6 · STABLE</span>
+      <span class="brand-tag">// v.1.1.0 · FREE</span>
     </div>
     <div class="nav-links">
       <a href="#mechanic">How It Works</a>
       <a href="#rates">Rates</a>
       <a href="#debt">Debt</a>
       <a href="#logs">Operators</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#free">Free</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="#pricing" class="nav-cta">▷ Download</a>
+    <a href="https://apps.apple.com/app/id6763505097" class="nav-cta">▷ Download</a>
   </div>
 </nav>
 
@@ -958,7 +938,7 @@
   <div class="wrap">
     <div class="hero-tag">
       <span class="blink"></span>
-      <span>// OPERATOR_HUB · v.2.6 · STATUS_ACTIVE</span>
+      <span>// OPERATOR_HUB · v.1.1.0 · STATUS_ACTIVE</span>
     </div>
     <div class="hero-grid">
       <div>
@@ -972,7 +952,7 @@
           GritMode — your discipline command hub. Blocks <b>Instagram</b>, <b>TikTok</b>, <b>YouTube</b> via Screen Time API. Unlocks only after you've <b>earned</b> the minutes through push-ups, squats, or steps. Miss a workout — <span class="tag-o">credit debt</span>. Earn it back — debt repays first.
         </p>
         <div class="cta-row">
-          <a href="#pricing" class="btn btn-green">▷ Enter the Hub</a>
+          <a href="https://apps.apple.com/app/id6763505097" class="btn btn-green">▷ Enter the Hub</a>
           <a href="#mechanic" class="btn btn-dark">[?] How It Works</a>
         </div>
 
@@ -1388,77 +1368,45 @@
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
+<!-- FREE ACCESS -->
+<section id="free">
   <div class="wrap">
     <div class="sec-head" style="justify-content:center; text-align:center;">
       <div style="text-align:center; max-width:720px; margin:0 auto;">
-        <div class="sec-tag">// ACCESS_TIERS</div>
-        <h2 style="margin:0 auto;">Choose your pace.<br/><span class="g">Pay for discipline.</span></h2>
-        <p style="margin:24px auto 0;">Three tiers — one mechanic. Screen Time blocking, AI rep counter, credit system. The longer the commitment — the lower the price.</p>
+        <div class="sec-tag">// FULL_ACCESS · $0</div>
+        <h2 style="margin:0 auto;">Every feature.<br/><span class="g">Free for everyone.</span></h2>
+        <p style="margin:24px auto 0;">Use the complete GritMode experience at no cost: block distracting apps, earn screen time through exercise, and track your progress. No subscription, trial, or in-app purchases.</p>
       </div>
     </div>
 
     <div class="pricing-box">
-      <div class="tier featured bracket">
+      <div class="free-feature featured bracket">
         <span class="br-bl"></span><span class="br-br"></span>
-        <div class="tier-badge">Best Value</div>
+        <div class="free-badge">100% Free</div>
         <div>
-          <div class="tier-tag">// TIER_01 · YEARLY</div>
-          <div class="tier-name">Yearly</div>
-          <div class="tier-sub">Maximum discipline, minimum cost</div>
+          <div class="feature-tag">// BLOCK · EARN · UNLOCK</div>
+          <div class="feature-name">Full access</div>
+          <div class="feature-sub">All features available to every user</div>
         </div>
-        <div class="tier-price">
-          <b>$79.99</b>
-          / year · ≈ $6.66/mo
+        <div class="feature-sub" style="text-align:right; flex-shrink:0; color:var(--green);">
+          $0<br/>always
         </div>
       </div>
-
-      <div class="tier bracket">
-        <span class="br-bl"></span><span class="br-br"></span>
-        <div>
-          <div class="tier-tag">// TIER_02 · MONTHLY</div>
-          <div class="tier-name">Monthly</div>
-          <div class="tier-sub">Flexible start, no long commitment</div>
-        </div>
-        <div class="tier-price">
-          <b>$9.99</b>
-          / mo
-        </div>
-      </div>
-
-      <div class="tier bracket">
-        <span class="br-bl"></span><span class="br-br"></span>
-        <div>
-          <div class="tier-tag">// TIER_03 · WEEKLY</div>
-          <div class="tier-name">Weekly</div>
-          <div class="tier-sub">Try the mechanic today</div>
-        </div>
-        <div class="tier-price">
-          <b>$3.99</b>
-          / wk
-        </div>
-      </div>
-
-      <div class="pricing-cta-row">
-        <a href="https://apps.apple.com/app/id6763505097" target="_blank" rel="noopener" class="btn btn-green">▷ Enable Premium</a>
-        <div class="pricing-links">
-          <a href="https://apps.apple.com/app/id6763505097" target="_blank" rel="noopener">Restore</a><span>|</span>
-          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms</a><span>|</span>
-          <a href="https://alex-mianmi.github.io/gritmode-legal/privacy.html" target="_blank" rel="noopener">Privacy</a>
-        </div>
+      <div class="free-cta-row">
+        <a href="https://apps.apple.com/app/id6763505097" class="btn btn-green">▷ Download GritMode Free</a>
       </div>
     </div>
 
     <div class="pricing-features">
-      <b>// WHAT'S INCLUDED IN PREMIUM</b>
+      <b>// EVERY FEATURE · NO PAYWALLS</b>
       <ul>
-        <li>All 6 exercises + steps from Apple Health</li>
-        <li>Real app blocking via Screen Time</li>
-        <li>Credit system and debt tracking</li>
-        <li>History, streaks, achievements</li>
-        <li>Lock Screen + Home Screen widgets</li>
-        <li>Difficulty and rate settings</li>
+        <li>All exercise-based screen-time unlocks</li>
+        <li>App blocking with Apple Screen Time</li>
+        <li>Exercise minutes, balance, and credit tracking</li>
+        <li>Workout history, streaks, and achievements</li>
+        <li>Exercise difficulty and rate settings</li>
+        <li>Health and step-tracking features</li>
+        <li>Progress stats and AI insights</li>
       </ul>
     </div>
   </div>
@@ -1493,7 +1441,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" data-n="5"><span>Do I need Screen Time permission?</span><span class="faq-q-plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">For real blocking — yes. This is Apple's standard API (Family Controls). Without it, GritMode works as a counter with widgets but can't physically close an app.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">For real blocking — yes. This is Apple's standard API (Family Controls). Without it, GritMode can count exercise but can't physically block selected apps.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" data-n="6"><span>Android?</span><span class="faq-q-plus">+</span></button>
@@ -1509,8 +1457,8 @@
     <div class="label">// INITIATE_SEQUENCE · 01</div>
     <h2>Your next swipe<br/>costs <span class="g">five push-ups.</span></h2>
     <p>Download GritMode for free. Complete one workout. The rest is your call, operator.</p>
-    <a href="https://apps.apple.com/app/id6763505097" target="_blank" rel="noopener" class="btn btn-green" style="padding: 22px 40px; font-size: 15px;">▷ Enter the Hub</a>
-    <div style="margin-top:22px; font-family: var(--mono); font-size: 11px; color: var(--green-dim); letter-spacing: 0.14em;">// iOS 17+ · 32 MB · FREE_TRIAL_7_DAYS</div>
+    <a href="https://apps.apple.com/app/id6763505097" class="btn btn-green" style="padding: 22px 40px; font-size: 15px;">▷ Enter the Hub</a>
+    <div style="margin-top:22px; font-family: var(--mono); font-size: 11px; color: var(--green-dim); letter-spacing: 0.14em;">// iOS 17.6+ · FREE · NO_IN_APP_PURCHASES</div>
   </div>
 </section>
 
@@ -1520,10 +1468,10 @@
     <div class="foot-top">
       <div>
         <div class="brand">
-          <div class="brand-mark"><img src="assets/gm-icon.png" alt="GritMode"/></div>
+          <div class="brand-mark"><img src="assets/gritmode-app-icon.png" alt="GritMode"/></div>
           GritMode
         </div>
-        <p class="foot-tag">// OPERATOR_HUB v.2.6<br/>Earn your screen time through exercise. iOS only. Built 2026.</p>
+        <p class="foot-tag">// OPERATOR_HUB v.1.1.0<br/>Earn your screen time through exercise. iOS only. Built 2026.</p>
       </div>
       <div class="foot-col">
         <h5>// Product</h5>
@@ -1531,7 +1479,7 @@
           <li><a href="#mechanic">How It Works</a></li>
           <li><a href="#rates">Rates</a></li>
           <li><a href="#progress">Stats</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#free">Free app</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -1543,9 +1491,9 @@
       <div class="foot-col">
         <h5>// Legal</h5>
         <ul>
-          <li><a href="https://alex-mianmi.github.io/gritmode-legal/privacy.html" target="_blank" rel="noopener">Privacy</a></li>
+          <li><a href="https://alex-minami.github.io/gritmode-legal/privacy.html" target="_blank" rel="noopener">Privacy</a></li>
           <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms</a></li>
-          <li><a href="https://apps.apple.com/app/id6763505097" target="_blank" rel="noopener">Subscription</a></li>
+          <li><a href="https://apps.apple.com/app/id6763505097" target="_blank" rel="noopener">Download free</a></li>
         </ul>
       </div>
     </div>
