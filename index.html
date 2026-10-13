@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GritMode — App Blocker | Free in 1.1.0</title>
-<meta name="description" content="GritMode 1.1.0 makes every feature free. Block apps and earn screen time through exercise. Until the update is on the App Store, older versions may still show subscription screens." />
+<title>GritMode — Earn screen time with exercise</title>
+<meta name="description" content="Choose a distracting app, earn a few minutes with exercise or steps, and let the restriction return when time runs out. GritMode is free on iPhone." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="GritMode — App Blocker | Free in 1.1.0" />
-<meta property="og:description" content="GritMode 1.1.0 makes every feature free. Older App Store versions may still show subscription screens until the update is available." />
+<meta property="og:title" content="GritMode — Earn screen time with exercise" />
+<meta property="og:description" content="Block a distracting app. Complete a short activity. Use the minutes you earned. Free on iPhone." />
 <link rel="icon" type="image/png" href="assets/gritmode-app-icon.png" />
 <link rel="apple-touch-icon" href="assets/gritmode-app-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -297,18 +297,18 @@
   .debt-card {
     padding: 14px;
     border: 1.5px solid var(--orange);
-    background: rgba(255,107,61,0.05);
+    background: rgba(127,255,92,0.06);
     position: relative;
     display: flex; justify-content: space-between; align-items: center;
     clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
   }
   .debt-card .small {
-    font-size: 9px; color: var(--orange); letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 9px; color: var(--green); letter-spacing: 0.14em; text-transform: uppercase;
     margin-bottom: 4px;
   }
   .debt-card .msg { font-size: 10px; color: var(--text-2); line-height: 1.4; max-width: 140px; }
-  .debt-card .amt { font-size: 26px; font-weight: 700; color: var(--orange); font-family: var(--mono); text-shadow: 0 0 10px rgba(255,107,61,0.5); }
-  .debt-card .amt small { font-size: 11px; color: var(--orange); margin-left: 3px; }
+  .debt-card .amt { font-size: 26px; font-weight: 700; color: var(--green); font-family: var(--mono); }
+  .debt-card .amt small { font-size: 11px; color: var(--green); margin-left: 3px; }
 
   .block-item {
     position: relative;
@@ -863,41 +863,6 @@
     to   { background-position: 0 200px; }
   }
 
-  /* glitch on hero title */
-  .hero-title { position: relative; }
-  .hero-title::before,
-  .hero-title::after {
-    content: attr(data-text);
-    position: absolute; top: 0; left: 0;
-    width: 100%; pointer-events: none;
-    font-family: inherit; font-size: inherit;
-    font-weight: inherit; line-height: inherit;
-    letter-spacing: inherit; text-transform: inherit;
-    opacity: 0;
-  }
-  .hero-title::before { color: var(--cyan);  mix-blend-mode: screen; }
-  .hero-title::after  { color: var(--orange); mix-blend-mode: screen; }
-  .hero-title.glitch::before {
-    opacity: 0.7;
-    animation: glitchTop 0.18s steps(2) forwards;
-  }
-  .hero-title.glitch::after {
-    opacity: 0.7;
-    animation: glitchBot 0.18s steps(2) forwards;
-  }
-  @keyframes glitchTop {
-    0%   { clip-path: polygon(0 0,   100% 0,   100% 33%,  0 33%);  transform: translate(-4px, -2px); }
-    33%  { clip-path: polygon(0 55%, 100% 55%, 100% 70%,  0 70%);  transform: translate(4px,  1px);  }
-    66%  { clip-path: polygon(0 20%, 100% 20%, 100% 40%,  0 40%);  transform: translate(-2px, 3px);  }
-    100% { clip-path: polygon(0 0,   100% 0,   100% 0,    0 0);    transform: translate(0, 0);       }
-  }
-  @keyframes glitchBot {
-    0%   { clip-path: polygon(0 60%, 100% 60%, 100% 80%,  0 80%);  transform: translate(4px,  2px);  }
-    33%  { clip-path: polygon(0 10%, 100% 10%, 100% 28%,  0 28%);  transform: translate(-4px, -1px); }
-    66%  { clip-path: polygon(0 75%, 100% 75%, 100% 90%,  0 90%);  transform: translate(2px, -3px);  }
-    100% { clip-path: polygon(0 0,   100% 0,   100% 0,    0 0);    transform: translate(0, 0);       }
-  }
-
   /* neon flicker on section tags */
   @keyframes neonFlicker {
     0%, 95%, 100% { opacity: 1; }
@@ -925,8 +890,7 @@
     </div>
     <div class="nav-links">
       <a href="#mechanic">How It Works</a>
-      <a href="#rates">Rates</a>
-      <a href="#debt">Debt</a>
+      <a href="#rates">Activities</a>
       <a href="#logs">The Loop</a>
       <a href="#free">Free</a>
       <a href="#faq">FAQ</a>
@@ -940,40 +904,40 @@
   <div class="wrap">
     <div class="hero-tag">
       <span class="blink"></span>
-      <span>// OPERATOR_HUB · FREE MODEL FROM v.1.1.0</span>
+      <span>// BLOCK · EARN · UNLOCK</span>
     </div>
     <div class="hero-grid">
       <div>
-        <h1 class="hero-title" data-text="Earn your screen time with exercise">
+        <h1 class="hero-title">
           Earn your<br/>
           <span class="glow">screen</span><br/>
           time<br/>
           <span class="orange">with exercise<span class="typed-cursor"></span></span>
         </h1>
         <p class="hero-sub">
-          GritMode — your discipline command hub. Blocks <b>Instagram</b>, <b>TikTok</b>, <b>YouTube</b> via Screen Time API. Unlocks only after you've <b>earned</b> the minutes through push-ups, squats, crunches, plank, steps, or breathing. Miss a workout — <span class="tag-o">credit debt</span>. Earn it back — debt repays first.
+          Pick an app that pulls you in, such as <b>TikTok</b>. GritMode restricts it with Apple Screen Time. Do a short activity, earn a few minutes of access, and return to your day when the timer ends.
         </p>
         <div class="cta-row">
           <a href="https://apps.apple.com/app/id6763505097" class="btn btn-green">▷ Download GritMode</a>
           <a href="#mechanic" class="btn btn-dark">[?] How It Works</a>
         </div>
-        <div class="release-note">The fully free model starts with version 1.1.0. Until that update is available in the App Store, older versions may still show subscription screens.</div>
+        <div class="release-note">Free on iPhone. Screen Time permission is needed to restrict selected apps.</div>
 
         <div class="hero-stats">
           <div class="stat-tile bracket green">
             <span class="br-bl"></span><span class="br-br"></span>
-            <div class="lbl">// Earn with</div>
-            <div class="val">6<span class="unit"> activities</span></div>
+            <div class="lbl">// Example</div>
+            <div class="val">10<span class="unit"> push-ups</span></div>
           </div>
           <div class="stat-tile bracket bracket-cyan cyan">
             <span class="br-bl"></span><span class="br-br"></span>
-            <div class="lbl">// App access</div>
-            <div class="val">Screen<span class="unit"> Time</span></div>
+            <div class="lbl">// Earn</div>
+            <div class="val">5<span class="unit"> minutes</span></div>
           </div>
           <div class="stat-tile bracket bracket-orange orange">
             <span class="br-bl"></span><span class="br-br"></span>
-            <div class="lbl">// Platform</div>
-            <div class="val">iOS 17.6<span class="unit">+</span></div>
+            <div class="lbl">// Then</div>
+            <div class="val">Relock<span class="unit"> automatically</span></div>
           </div>
         </div>
       </div>
@@ -1001,10 +965,10 @@
 
               <div class="debt-card">
                 <div>
-                  <div class="small">⚠ CREDIT DEBT</div>
-                  <div class="msg">Work off 231 min in your next workout</div>
+                  <div class="small">✓ EARNED ACCESS</div>
+                  <div class="msg">10 push-ups completed · TikTok access available</div>
                 </div>
-                <div class="amt">231<small>min</small></div>
+                <div class="amt">5<small>min</small></div>
               </div>
 
               <div class="block-item bracket">
@@ -1012,30 +976,11 @@
                 <div class="block-item-ico ico-tt">d</div>
                 <div>
                   <div class="name">TikTok</div>
-                  <div class="meta"><span class="blocked">BLOCKED</span><span class="rate">30 breathing → <em>3 min</em></span></div>
+                  <div class="meta"><span class="blocked">BLOCKED</span><span class="rate">10 push-ups → <em>5 min</em></span></div>
                 </div>
                 <div class="ar">›</div>
               </div>
-              <div class="block-item bracket">
-                <span class="br-bl"></span><span class="br-br"></span>
-                <div class="block-item-ico ico-th">@</div>
-                <div>
-                  <div class="name">Threads</div>
-                  <div class="meta"><span class="blocked">BLOCKED</span><span class="rate">1,000 steps → <em>10 min</em></span></div>
-                </div>
-                <div class="ar">›</div>
-              </div>
-              <div class="block-item bracket">
-                <span class="br-bl"></span><span class="br-br"></span>
-                <div class="block-item-ico ico-ig">IG</div>
-                <div>
-                  <div class="name">Instagram</div>
-                  <div class="meta"><span class="blocked">BLOCKED</span><span class="rate">1,000 steps → <em>10 min</em></span></div>
-                </div>
-                <div class="ar">›</div>
-              </div>
-
-              <div class="phone-cta">⚡ Earn Time</div>
+              <div class="phone-cta">▶ Use earned minutes</div>
             </div>
           </div>
         </div>
@@ -1048,8 +993,8 @@
 <!-- TERMINAL STRIP -->
 <div class="terminal">
   <div class="term-track">
-    <span><span class="prompt g">SYSTEM.READY</span><span class="sep"></span><span class="o">// DEBT_WARNING</span><span class="sep"></span><span class="c">// BLOCK · EARN · UNLOCK</span><span class="sep"></span><span class="g">// EXERCISE EARNS SCREEN TIME</span><span class="sep"></span><span class="o">// ACTIVITY EARNS MINUTES</span><span class="sep"></span><span class="c">// VISION_ON_DEVICE</span><span class="sep"></span></span>
-    <span><span class="prompt g">SYSTEM.READY</span><span class="sep"></span><span class="o">// DEBT_WARNING</span><span class="sep"></span><span class="c">// BLOCK · EARN · UNLOCK</span><span class="sep"></span><span class="g">// EXERCISE EARNS SCREEN TIME</span><span class="sep"></span><span class="o">// ACTIVITY EARNS MINUTES</span><span class="sep"></span><span class="c">// VISION_ON_DEVICE</span><span class="sep"></span></span>
+    <span><span class="prompt g">SYSTEM.READY</span><span class="sep"></span><span class="c">// BLOCK · EARN · UNLOCK</span><span class="sep"></span><span class="g">// EXERCISE EARNS SCREEN TIME</span><span class="sep"></span><span class="o">// RELOCK WHEN TIME ENDS</span><span class="sep"></span><span class="c">// VISION_ON_DEVICE</span><span class="sep"></span></span>
+    <span><span class="prompt g">SYSTEM.READY</span><span class="sep"></span><span class="c">// BLOCK · EARN · UNLOCK</span><span class="sep"></span><span class="g">// EXERCISE EARNS SCREEN TIME</span><span class="sep"></span><span class="o">// RELOCK WHEN TIME ENDS</span><span class="sep"></span><span class="c">// VISION_ON_DEVICE</span><span class="sep"></span></span>
   </div>
 </div>
 
@@ -1059,9 +1004,9 @@
     <div class="sec-head">
       <div>
         <div class="sec-tag">// PROTOCOL · 03 STEPS</div>
-        <h2>Simple <span class="g">mechanic.</span><br/>Real <span class="o">debt.</span></h2>
+        <h2>One small action.<br/><span class="g">Minutes you earned.</span></h2>
       </div>
-      <p>The loop is closed. Your body pays for screen time. Skip — debt accumulates and you'll have to work it off before the next unlock.</p>
+      <p>Choose an app, complete an activity, and use the time you earned. GritMode applies the restriction again when the granted time ends.</p>
     </div>
 
     <div class="mech-grid">
@@ -1084,9 +1029,9 @@
       <article class="mech-card bracket">
         <span class="br-bl"></span><span class="br-br"></span>
         <div class="mech-num">// STEP_03 · UNLOCK</div>
-        <h3>Clear the Debt</h3>
-        <p>Earned minutes go toward debt first, then unlock apps. Borrow if you need to. Pay it back tomorrow.</p>
-        <div class="op-line">debt_first → then unlock_apps</div>
+        <h3>Use the Time</h3>
+        <p>Spend your earned minutes on access to the app you chose. The restriction returns when the time runs out.</p>
+        <div class="op-line">unlock → timer → restriction_returns</div>
       </article>
     </div>
 
@@ -1179,32 +1124,6 @@
   </div>
 </section>
 
-<!-- DEBT / SCIENCE -->
-<section class="debt-section" id="debt">
-  <div class="wrap">
-    <div class="debt-split">
-      <div>
-        <div class="debt-big">
-          239
-          <small>// CREDIT_DEBT · MIN</small>
-        </div>
-      </div>
-      <div class="debt-copy">
-        <div class="sec-tag" style="color:var(--orange);">// CREDIT_SYSTEM</div>
-        <h2>Debt — <em>it's a mechanic.</em> Not a punishment.</h2>
-        <p>When your balance runs out but you need TikTok right now — take credit. GritMode will remember. The next earned minutes <b>repay the debt first</b>, then unlock new time.</p>
-        <p>It's the only honest way to stay disciplined in moments of weakness. You're not denying yourself — you're making a promise.</p>
-
-        <div class="cite-block">
-          <div class="src">// SRC: UCL / PubMed · 2009</div>
-          <div class="q">"Habit formation is not willpower. It's repetition in consistent conditions. On average 66 days."</div>
-          <div class="m">Lally et al. — European Journal of Social Psychology</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- STATS MOSAIC -->
 <section id="progress">
   <div class="wrap">
@@ -1213,7 +1132,7 @@
         <div class="sec-tag">// ILLUSTRATIVE SAMPLE · WEEKLY STATS</div>
         <h2>See your progress<br/>in <span class="g">one view.</span></h2>
       </div>
-      <p>GritMode tracks what you earn, unlock, and spend. The figures below are sample values, not user or community statistics.</p>
+      <p>GritMode shows earned minutes, granted access, and your activities. The figures below are examples, not user or community statistics.</p>
     </div>
     <div class="sample-note">Example only — your summary reflects activity recorded in your own app.</div>
 
@@ -1284,17 +1203,6 @@
           <div class="lbl">Steps</div>
         </div>
       </div>
-      <div class="st-card st-orange bracket bracket-orange">
-        <span class="br-bl"></span><span class="br-br"></span>
-        <div class="head">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
-          <span>7 DAYS</span>
-        </div>
-        <div>
-          <div class="n">257<small>min</small></div>
-          <div class="lbl">On credit</div>
-        </div>
-      </div>
       <div class="st-card st-white bracket">
         <span class="br-bl"></span><span class="br-br"></span>
         <div class="head">
@@ -1360,7 +1268,7 @@
           <span>// STEP_03</span>
           <span class="st">TRACK</span>
         </div>
-        <p class="log-text">Review earned and spent minutes, credit, workouts, streaks, achievements, and unlock history.</p>
+        <p class="log-text">Review earned minutes, access granted, workouts, and your activity history.</p>
         <div class="log-foot">
           <div class="log-av">3</div>
           <div>
@@ -1400,7 +1308,7 @@
       <div class="free-cta-row">
         <a href="https://apps.apple.com/app/id6763505097" class="btn btn-green">▷ Download GritMode</a>
       </div>
-      <div class="release-note">The fully free model starts with version 1.1.0. Until that update is available in the App Store, older versions may still show subscription screens.</div>
+      <div class="release-note">All features are free from version 1.1.0 onward.</div>
     </div>
 
     <div class="pricing-features">
@@ -1408,7 +1316,7 @@
       <ul>
         <li>All exercise-based screen-time unlocks</li>
         <li>App blocking with Apple Screen Time</li>
-        <li>Exercise minutes, balance, and credit tracking</li>
+        <li>Exercise minutes and earned balance</li>
         <li>Workout history, streaks, and achievements</li>
         <li>Exercise difficulty and rate settings</li>
         <li>Health and step-tracking features</li>
@@ -1436,14 +1344,6 @@
       <div class="faq-item">
         <button class="faq-q" data-n="2"><span>Does the camera send video anywhere?</span><span class="faq-q-plus">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">No. All recognition happens on-device. Not a single frame leaves your iPhone — not to a server, not to analytics. Real-time processing via Vision + Core ML.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" data-n="3"><span>What is credit debt?</span><span class="faq-q-plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">When your balance runs out but you need an app right now — you borrow time. The next earned minutes automatically repay the debt first. You can accumulate up to 500 minutes of debt.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" data-n="4"><span>Why 66 days?</span><span class="faq-q-plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">University College London study (Lally et al., 2009): a new habit forms in an average of 66 days — not 21, as often claimed. We give you exactly that window, with a small daily barrier instead of an outright ban.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" data-n="5"><span>Do I need Screen Time permission?</span><span class="faq-q-plus">+</span></button>
@@ -1477,7 +1377,7 @@
           <div class="brand-mark"><img src="assets/gritmode-app-icon.png" alt="GritMode"/></div>
           GritMode
         </div>
-        <p class="foot-tag">// OPERATOR_HUB v.1.1.0<br/>Earn your screen time through exercise. iOS only. Built 2026.</p>
+        <p class="foot-tag">// BLOCK · EARN · UNLOCK<br/>Earn your screen time through exercise. iOS only. Built 2026.</p>
       </div>
       <div class="foot-col">
         <h5>// Product</h5>
@@ -1563,18 +1463,6 @@
       });
     }
     setInterval(tick, 75);
-  })();
-
-  // ─── HERO GLITCH ───
-  (function () {
-    const el = document.querySelector('.hero-title');
-    if (!el) return;
-    function fire() {
-      el.classList.add('glitch');
-      setTimeout(() => el.classList.remove('glitch'), 220);
-      setTimeout(fire, 3000 + Math.random() * 9000);
-    }
-    setTimeout(fire, 1500);
   })();
 
   // ─── NEON FLICKER STAGGER ───
